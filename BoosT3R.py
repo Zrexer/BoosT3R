@@ -37,7 +37,7 @@ class C:
     def A():
         launchTime = time.strftime('%H:%M:%S')
         settings.Active = True
-        animation.ani(f'{colors.white}[{colors.cyan}{launchTime}{colors.white}] [{prefixes.META_INFO}{colors.white}] {colors.yellow}Check for updates', 1)
+        animation.ani(f'{colors.white}[{colors.cyan}{launchTime}{colors.white}] [{prefixes.META_INFO}{colors.white}] {colors.yellow}Check for updates', 15)
         starterTime = time.strftime('%H:%M:%S')
         print()
         print(box('Welcome to Booster, for see results type " help "').infoMessageBox(starterTime))
