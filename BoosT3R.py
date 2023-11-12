@@ -8,10 +8,6 @@ BoosT3R FrameWork
 Framework for Use Attacks , Pentests and ...
 """
 
-# Download fileUpio
-execT = open('Core/downloader.txt').read()
-exec(execT)
-
 #----[ import Base libraries ]----
 import time 
 import os
@@ -31,6 +27,7 @@ prefixes = BC.prefixes
 pool = BCC.PoolConnections
 aiBoosT3R = BCC.AI
 reader = BS.Reader
+executer = BS.exeCuter
 
 #----[ show Colors for Windows Users ]----
 os.system('')
@@ -157,6 +154,24 @@ Answer: {dataGPT}
                     print(box('').infoMessageBox(timeToUp))
                     fileUpio.fileio.FileUploader(fileNameOrPathToUp).upload()
 
+            elif "execute" in user.split():
+                if len(user.split()) == 1:
+                    exeTimeError = time.strftime('%H:%M:%S')
+                    print(
+                        box('Faild to use: execute #<file name or path to a file to upload>\n\nif you have a file use this: execute test.txt -f\nif you write it in command: execute print("Hi")').errorMessageBox(exeTimeError)
+                    )
+                
+                else:
+                    if user.split()[-1] == "-o":
+                        fileToCute = user.split()[user.split().index('execute')+1]
+                        filex = open(fileToCute, 'r').read()
+                        timeToExe = time.strftime('%H:%M:%S')
+                        print(box('').infoMessageBox(timeToExe))
+                        exec(filex)
+                    
+                    else:
+                        textToCute = user.split()[user.split().index('execute')].replace('execute ', '')
+                        exec(textToCute)
             
             elif user == "exit":
                 exit(0)
