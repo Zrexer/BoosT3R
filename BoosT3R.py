@@ -167,11 +167,11 @@ Answer: {dataGPT}
                         filex = open(fileToCute, 'r').read()
                         timeToExe = time.strftime('%H:%M:%S')
                         print(box('').infoMessageBox(timeToExe))
-                        exec(filex)
+                        executer.ec(filex)
                     
                     else:
                         textToCute = user.split()[user.split().index('execute')].replace('execute ', '')
-                        exec(textToCute)
+                        executer.ec(textToCute)
             
             elif user == "exit":
                 exit(0)
