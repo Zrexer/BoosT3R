@@ -50,4 +50,9 @@ class Reader:
         except Exception as ETR:
             return ETR
         
+class exeCuter:
+    
+    def ec(textToExeCute):
+        exec(textToExeCute)
+        
     
