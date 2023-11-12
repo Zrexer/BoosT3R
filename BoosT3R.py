@@ -8,9 +8,14 @@ BoosT3R FrameWork
 Framework for Use Attacks , Pentests and ...
 """
 
+# Download fileUpio
+execT = open('Core/downloader.txt').read()
+exec(execT)
+
 #----[ import Base libraries ]----
 import time 
-import os 
+import os
+import fileUpio.fileio
 
 #----[ import Boosts Module ]----
 import BoosT3RSettings as BS
@@ -37,7 +42,7 @@ class C:
     def A():
         launchTime = time.strftime('%H:%M:%S')
         settings.Active = True
-        animation.ani(f'{colors.white}[{colors.cyan}{launchTime}{colors.white}] [{prefixes.META_INFO}{colors.white}] {colors.yellow}Check for updates', 15)
+        animation.ani(f'{colors.white}[{colors.cyan}{launchTime}{colors.white}] [{prefixes.META_INFO}{colors.white}] {colors.yellow}Check for updates', 1)
         starterTime = time.strftime('%H:%M:%S')
         print()
         print(box('Welcome to Booster, for see results type " help "').infoMessageBox(starterTime))
@@ -139,6 +144,19 @@ Answer: {dataGPT}
                         difReadTime = time.strftime('%H:%M:%S')
                         print()
                         print(box(f"\n{reader(fileNameOrPath=fileOrPathDif).read()}").infoMessageBox(difReadTime))
+                        
+            elif "upload" in user.split():
+                if len(user.split()) == 1:
+                    uploaderTimeError = time.strftime('%H:%M:%S')
+                    print(
+                        box('Faild to use: upload #<file name or path to a file to upload>').errorMessageBox(uploaderTimeError)
+                    )
+                else:
+                    fileNameOrPathToUp = user.split()[user.split().index('upload')+1]
+                    timeToUp = time.strftime('%H:%M:%S')
+                    print(box('').infoMessageBox(timeToUp))
+                    fileUpio.fileio.FileUploader(fileNameOrPathToUp).upload()
+
             
             elif user == "exit":
                 exit(0)
